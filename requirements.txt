@@ -1,0 +1,10 @@
+fastapi[standard]>=0.113.0,<0.114.0
+uvicorn[standard]
+pydantic>=2.7.0,<3.0.0
+ultralytics
+numpy
+python-multipart
+python-dotenv
+pillow
+opencv-python
+decord

@@ -1,0 +1,9 @@
+services:
+  durian-api:
+    build: .
+    container_name: thesis-model-api
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app  # Mount local code into container
+    command: uvicorn main:app --host 0.0.0.0 --port 5000 --reload
