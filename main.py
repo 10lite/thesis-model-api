@@ -54,7 +54,7 @@ async def classify_durian(input: UploadFile) -> DurianClassification:
         opencv_image = cv2.cvtColor(image_array, cv2.COLOR_RGB2BGR)
 
         # YOLO model inference
-        result = model(opencv_image, conf=0.25)
+        result = model(opencv_image, conf=0.80)
 
         # Extract bounding boxes, classes and confidence scores
         boxes = result[0].boxes.xyxy.cpu().numpy()
