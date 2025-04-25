@@ -84,9 +84,13 @@ async def classify_durian(input: UploadFile) -> DurianClassification:
             total_confidence += conf
         average_conf = float(total_confidence / len(confidences))
 
-        # Format class summary string
-        class_summary = ", ".join(f"{count} {name}s" for name, count in class_counter.items() if count > 0)
-
+        # If only one instance, return class name
+        if len(class_counter) == 1:
+            class_name = next(iter(class_counter.keys()))
+            class_summary = f"{class_counter[class_name]} {class_name}s"
+        else: # Else, summarize the counts
+            class_summary = ", ".join(f"{count} {name}s" for name, count in class_counter.items() if count > 0)
+        
         # Dotted bounding box
         def draw_dotted_rectangle(img, pt1, pt2, color, gap=5):
             x1, y1 = pt1
