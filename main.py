@@ -62,7 +62,7 @@ async def classify_durian(input: UploadFile) -> DurianClassification:
         class_ids = result[0].boxes.cls.cpu().numpy()
         
         # Classes
-        class_names = ["puyat", "nonpuyat"]
+        class_names = ["nonpuyat", "puyat"]
         class_colors = {
             "puyat": (0, 255, 0),      # Green
             "nonpuyat": (0, 0, 255)    # Red
